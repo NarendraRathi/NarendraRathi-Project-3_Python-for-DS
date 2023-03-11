@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Login </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">          
+    </head>
+    <body></br></br></br></br></br>
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+                <h1 class="word">Welcome</h1> 
+             </div></br></br></br>
+             <h2 class="word">Please Login/Register to check loan eligibility</h2>
+                <form >
+                  <!-- <div class="msg">{{ msg }}</div> -->
+                  <a class="bottom" href="{{url_for('login')}}"> Login Now </a></p>
+                  <a class="bottom" href="{{url_for('register')}}"> Register Now </a></p>
+                </form>
+          </div>
+        </div>
+    </body>
+</html>

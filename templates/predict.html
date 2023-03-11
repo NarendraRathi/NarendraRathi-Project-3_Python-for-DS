@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="hero-image">
+        <div class="hero-text ">
+            <h1 style = "font-size:50px"> House Loan Eligibility Prediction</h1>
+            <br>
+            <h3>{{prediction_text}}</h3>
+        </div>
+    </div>
+    <style>
+       .hero-image{
+    height: 10%;
+    text-align: center;
+    background-color: transparent;
+    position: relative;
+    padding: 50px;
+}
+.hero-text{
+    color: #000000;
+}
+
+       
+    </style>
+    
+   
+    <div >
+        <form action="{{url_for('predict')}}", method="post">
+            <h2>Please enter the details to check your house loan eligibility :</h2>
+            <h3>Gender</h3>
+            <select name="gender" id="resea" required="required">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+            <h3>Married</h3>
+            <select name="married" id="resea" required="required">
+                <option value="0">Yes</option>
+                <option value="1">No</option>                                                                   
+            </select>
+            <h3>Dependents</h3><input id="third" name="dependents" required="required">
+            <h3>Education</h3>
+            <select name="education" id="resea" required="required">
+                <option value="0">Graduate</option>
+                <option value="1">Not graduate</option>                                                                   
+            </select>
+            <h3>Self_employed</h3>
+            <select name="self_employed" id="resea" required="required">
+                <option value="0">Yes</option>
+                <option value="1">No</option>                                                                   
+            </select>
+            <h3>Applicant Income($)</h3><br>
+            <input id="fourth" name="applicantincome" required="required">
+            <h3>Coapplicant Income($)</h3><br>
+            <input id="fourth" name="coapplicantincome" required="required">
+            <h3>Loan Amount in thousands($)</h3><br>
+            <input id="fourth" name="loanamount" required="required">
+            <h3>Loan Amount Term(in months)</h3><br>
+            <input id="fourth" name="loan_amount_term" required="required">
+            <h3>Credit History</h3>
+            <select name="credit_history" id="resea" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            <h3>Property Area</h3>
+            <select id="area" name="property_area" required="required">
+                <option value="0">semiurban</option>
+                <option value ="1">urban</option>
+                <option value="2">rural </option>
+            </select>  
+        <br><br>
+        <button id ="sub" type="submit">Submit</button>
+        </br></br></br>
+          
+        </form>
+        <!-- <button href="{{ url_for('logout') }}" class="btn">Logout</button>  -->
+        <a href="{{ url_for('logout') }}"  class="btn">Press here to logout</a>
+
+    </div>
+
+    <style>
+        body {
+  padding: 50px;
+  border-color: red;
+  font-family: Helvetica;
+  background-image: url("/static/image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(0);
+  -webkit-transition: -webkit-filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out;
+}
+
+form {
+  text-align: left;
+  padding: 50px; 
+  border-radius: 20px;
+  background-color: rgba(250, 240, 242, 0.5);
+}
+
+#area {
+  width: 83px;
+  height: 43px;
+  text-align: center;
+  border-radius: 14px;
+  font-size: 20px;
+}
+
+#area:hover {
+  background-color: white;
+}
+
+#resea {
+  width: 99px;
+  height: 43px;
+  text-align: center;
+  border-radius: 14px;
+  font-size: 18px;
+}
+
+#resea:hover {
+  background-color: white;
+}
+
+#sub {
+  background-color: #95725E;
+  font-family: 'Helvetica' monospace;
+  font-weight: bold;
+  width: 180px;
+  height: 60px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 18px;
+  color: white;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#sub:hover {
+  background-color: black;
+}
+
+#third {
+  border-radius: 10px;
+  width: 99px;
+  height: 25px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#fourth {
+  border-radius: 10px;
+  width: 99px;
+  height: 25px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 40px;
+  background-color: #95725E;
+  color: #FFFFFF;
+  font-style: oblique;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+.border {
+  padding: 80px 50px;
+  width: 400px;
+  height: 450px;
+  border: 1px solid #236B8E;
+  border-radius: 0px;
+  background-color: rgba(154, 192, 205, 0.5);
+}
+
+.textbox {
+  padding: 10px 40px;
+  background-color: #236B8E;
+  color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.textbox:hover,
+.bottom:hover,
+.border:hover ~ body {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+.word {
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.bottom {
+  font-style: oblique;
+  font-weight: bold;
+  color: #236B8E;
+}
+
+    </style>
+</body>
+</html>
